@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Project {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  url         String
+  tags        String
+  imageUrl    String?
+  category    String
+  featured    Boolean  @default(false)
+  approved    Boolean  @default(true)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
